@@ -29,56 +29,56 @@ VALUES
 (12, 'champignon',	    200,	true,	1);
 
 INSERT INTO pizza 
-(pizzaId,  isavailable, prixunitaire, tpsPrepa) 
+(pizzaId, PizzaName,  isavailable, prixunitaire, tpsPrepa) 
 VALUES
-('Reine',	        true,	10.90,  '00:20:00'),
-('Margarita',		true,	10.90,  '00:20:00'),
-('Orientale',		true,	12.90,  '00:20:00'),
-('Pepperoni',		true,	12.90,  '00:20:00'),
-('Chèvre Miel',		true,	12.90,  '00:20:00'),
-('Veggie',          true,	14.90,  '00:20:00'),
-('4 fromages',		true,	14.90,  '00:20:00'),
-('Saumon',          true,	14.90,  '00:20:00'),
-('Hawaienne',		true,	14.90,  '00:20:00');
+(1,'Reine',	        true,	10.90,  '00:20:00'),
+(2,'Margarita',		true,	10.90,  '00:20:00'),
+(3,'Orientale',		true,	12.90,  '00:20:00'),
+(4,'Pepperoni',		true,	12.90,  '00:20:00'),
+(5,'Chèvre Miel',		true,	12.90,  '00:20:00'),
+(6,'Veggie',          true,	14.90,  '00:20:00'),
+(7,'4 fromages',		true,	14.90,  '00:20:00'),
+(8,'Saumon',          true,	14.90,  '00:20:00'),
+(9,'Hawaienne',		true,	14.90,  '00:20:00');
 
 INSERT INTO ingredientlist 
 (ingredientid, quantity, pizzaId) 
 VALUES
-(1,	3,	'Margarita'),
-(2, 5,  'Margarita'),
-(3, 3,  'Margarita'),
-(1,	3,	'Reine'),
-(2, 5,  'Reine'),
-(3, 3,  'Reine'),
-(6, 1,  'Reine'),
-(12,2,  'Reine'),
-(1,	3,	'Orientale'),
-(2, 5,  'Orientale'),
-(3, 3,  'Orientale'),
-(7, 2,  'Orientale'),
-(10,3,  'Orientale');
+(1,	3,	2),
+(2, 5,  2),
+(3, 3,  2),
+(1,	3,	1),
+(2, 5,  1),
+(3, 3,  1),
+(6, 1,  1),
+(12,2,  1),
+(1,	3,	3),
+(2, 5,  3),
+(3, 3,  3),
+(7, 2,  3),
+(10,3,  3);
 
 INSERT INTO recette (pizzaId,stepid, step) 
 VALUES
-('Reine',1,	'Faire la pate'),
-('Reine',2,	'Etaler le coulis de tomate'),
-('Reine',3,	'Mettre 50 grammes de mozzarella'),
-('Reine',4,	'Déposer des copeaux de jambon'),
-('Reine',5,	'Déposer une poignée de champignons'),
-('Reine',6, 'Mettre au four à 220°C / 10 minutes'),
-('Reine',7,	'Saupoudrer d Origan'),
-('Margarita',1,	'Faire la pate'),
-('Margarita',2,	'Etaler le coulis de tomate'),
-('Margarita',3,	'Mettre 50 grammes de mozzarella'),
-('Margarita',4,	'Mettre au four à 220°C / 10 minutes'),
-('Margarita',5,	'Saupoudrer d Origan'),
-('Orientale',1,	'Faire la pate'),
-('Orientale',2,	'Etaler le coulis de tomate'),
-('Orientale',3,	'Mettre 50 grammes de mozzarella'),
-('Orientale',4,	'Déposer des copeaux de jambon'),
-('Orientale',5,	'Déposer des tranches de Chorizo'),
-('Orientale',6,	'Mettre au four à 220°C / 10 minutes'),
-('Orientale',7,	'Saupoudrer d Origan');
+(1,1,	'Faire la pate'),
+(1,2,	'Etaler le coulis de tomate'),
+(1,3,	'Mettre 50 grammes de mozzarella'),
+(1,4,	'Déposer des copeaux de jambon'),
+(1,5,	'Déposer une poignée de champignons'),
+(1,6, 'Mettre au four à 220°C / 10 minutes'),
+(1,7,	'Saupoudrer d Origan'),
+(2,1,	'Faire la pate'),
+(2,2,	'Etaler le coulis de tomate'),
+(2,3,	'Mettre 50 grammes de mozzarella'),
+(2,4,	'Mettre au four à 220°C / 10 minutes'),
+(2,5,	'Saupoudrer d Origan'),
+(3,1,	'Faire la pate'),
+(3,2,	'Etaler le coulis de tomate'),
+(3,3,	'Mettre 50 grammes de mozzarella'),
+(3,4,	'Déposer des copeaux de jambon'),
+(3,5,	'Déposer des tranches de Chorizo'),
+(3,6,	'Mettre au four à 220°C / 10 minutes'),
+(3,7,	'Saupoudrer d Origan');
 
 INSERT INTO drink
 (drinkId,prixunitaire, nom, drinkquantity, isavailable, supplierid)
@@ -117,6 +117,7 @@ VALUES
 INSERT INTO employe
 (employe_id, login, password, fonction, nom, prenom, isconnected, commune, adresse, codepostal) 
 VALUES
+(0,	'noOne',	    'no',	    'no',	    'noOne',	'noOne',     	    true	,'noWhere',	'noWhere',	        0),
 (1,	'pdubois',	    'test',	    'livreur',	    'Dubois',	'Paul',     	    true	,'Paris',	'37 rue de Sèvres',	        75006),
 (2,	'onguyen',	    'fleur',	'commercial',	'Nguyen',	'Océane',   	    true	,'Paris',	'350 rue Lecourbes'	,       75015),
 (3,	'cbourgeois',	'scooter',	'cuisinier',	'Bourgeois','Christophe',	    true,	'Paris'	,   '40 rue des Thermopyles',	75014),
@@ -144,22 +145,30 @@ VALUES
 
 
 INSERT INTO Commande
-(client_Id,livraison, isPaid,pizzaQuantity,pizzaId,drinkQuantity, drinkId,inCharge,status)
+(client_Id,livraison, isPaid,pizzaQuantities,pizzaOrders,drinkQuantities, drinkOrders,employe_inCharge_id,status)
 VALUES
-(1, true, true, 1, 'Reine', 1,8,1,'Livraison'),
-(4, true, true, 3, 'Orientale', 2,1,3,'Préparation'),
-(6, true, false, 1, 'Saumon', 4,1,6,'Préparation'),
-(2, true, true, 1, 'Margarita', 4,1,2,'Confirmée');
+(1, true, true, '1', '1', 1,8,1,'Livraison'),
+(4, true, true, '3', '3', 2,1,3,'Préparation'),
+(6, true, false, '1', '5', 4,1,6,'Préparation'),
+(2, true, true, '1', '2', 4,1,2,'Confirmée');
 
 INSERT INTO Commande
-(client_Id,livraison, isPaid,pizzaQuantity,pizzaId,drinkQuantity, drinkId,status)
+(client_Id,livraison, isPaid,pizzaQuantities,pizzaOrders,drinkQuantities, drinkOrders,employe_inCharge_id,status)
 VALUES
-(1, true, false, 1, 'Reine', 1,8,'Livrée'),
-(1, true, true, 3, 'Orientale', 2,1,'Attente'),
-(1, true, true, 1, 'Saumon', 4,1,'Attente'),
-(1, true, false, 1, 'Margarita', 4,1,'Livrée');
+(1, true, false, '1', '1', 1,8,0,'Livrée'),
+(1, true, true, '3', '3', 2,1,0,'Attente'),
+(1, true, true, '1', '5', 4,1,0,'Attente'),
+(1, true, false, '1', '2', 4,1,0,'Livrée');
 
 INSERT INTO Commande
-(client_Id,livraison, isPaid,pizzaQuantity,pizzaId,inCharge,status)
+(client_Id,livraison, isPaid,pizzaQuantities,pizzaOrders,employe_inCharge_id,status)
 VALUES
-(7, true, true, 3, 'Reine', 1,'Livraison');
+(7, true, true, '3', '1', 1,'Livraison');
+
+INSERT INTO Commande
+(client_Id,livraison, isPaid,pizzaQuantities,pizzaOrders,drinkQuantities, drinkOrders,employe_inCharge_id,status)
+VALUES
+(1, true, true, '1,2', '1, 3', '1',8,1,'Livraison'),
+(4, true, true, '3,1,2', '3, 2, 1', '2',1,3,'Préparation'),
+(6, true, false, '1,5', '5,', '4',1,6,'Préparation');
+
